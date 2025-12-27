@@ -1,0 +1,72 @@
+<h2>COW2 兵器攻撃・防御計算機</h2>
+
+<div style="margin-bottom:12px;">
+  <div>
+    <label>計算タイプ：</label><br>
+    <label><input type="radio" name="mode" value="attack" checked> 攻撃</label>
+    <label><input type="radio" name="mode" value="defense"> 防御</label>
+  </div>
+
+  <div>
+    <label>兵種：</label><br>
+    <select id="category" onchange="updateSubType()">
+      <option value="infantry">歩兵</option>
+      <option value="artillery">軍需品</option>
+      <option value="tank">戦車</option>
+      <option value="rocket">秘密</option>
+    </select>
+  </div>
+
+  <div>
+    <label>兵器：</label><br>
+    <select id="subType" onchange="updateLevelOptions()"></select>
+  </div>
+
+  <div>
+    <label>レベル：</label><br>
+    <select id="inputLevel"></select>
+  </div>
+
+  <div>
+    <label>個数：</label><br>
+    <input type="number" id="inputCount" min="1" value="1">
+  </div>
+
+  <div>
+    <button onclick="addWeaponRow()">＋兵器追加</button>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>兵種</th>
+      <th>兵器</th>
+      <th>レベル</th>
+      <th>個数</th>
+      <th>削除</th>
+    </tr>
+  </thead>
+  <tbody id="weaponTable"></tbody>
+</table>
+
+<button onclick="calculate()">計算</button>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>非装甲</th>
+      <th>軽装甲</th>
+      <th>重装甲</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="resultLabel">合計攻撃値</th>
+      <td id="res-unarmored">0</td>
+      <td id="res-light">0</td>
+      <td id="res-heavy">0</td>
+    </tr>
+  </tbody>
+</table>
